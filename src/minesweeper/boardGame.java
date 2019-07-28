@@ -106,12 +106,16 @@ public class boardGame {
         
         while(leftMines>0){
             int[] pos = randomPosition();
-            int space = listBoard.get(pos[0]).get(pos[1]);
+            System.out.println(pos[0] + "," + pos[1]);
+            
+            int space = listBoard.get(pos[1]).get(pos[0]);
             
             if(space!=9){
-                listBoard.get(pos[0]).set(pos[1],11);
+                listBoard.get(pos[1]).set(pos[0],11);
                 leftMines --;
+                
             }
+
         }
     }
     
