@@ -105,9 +105,7 @@ public class boardGame {
         int leftMines = this.mines; 
         
         while(leftMines>0){
-            int[] pos = randomPosition();
-            System.out.println(pos[0] + "," + pos[1]);
-            
+            int[] pos = randomPosition();            
             int space = listBoard.get(pos[1]).get(pos[0]);
             
             if(space!=9){
@@ -129,7 +127,7 @@ public class boardGame {
 
     public void putNumbers(){
         putMines();
-        /* for(int y=0; y<row; y++){
+        /*for(int y=0; y<row; y++){
             
             for(int x=0; x<column; x++){
               int bombs=0;
