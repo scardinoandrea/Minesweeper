@@ -94,7 +94,7 @@ public class boardGame {
             System.out.println(listBoard.get(i));
         }*/
 
-        putMines();
+        putNumbers();
         
         for(int i=0; i<row; i++){
             System.out.println(listBoard.get(i));
@@ -108,12 +108,11 @@ public class boardGame {
             int[] pos = randomPosition();            
             int space = listBoard.get(pos[1]).get(pos[0]);
             
-            if(space!=9){
+            if(space!=11){
                 listBoard.get(pos[1]).set(pos[0],11);
                 leftMines --;
                 
             }
-
         }
     }
     
@@ -127,24 +126,23 @@ public class boardGame {
 
     public void putNumbers(){
         putMines();
-        /*for(int y=0; y<row; y++){
-            
+        for(int y=0; y<row; y++){        
             for(int x=0; x<column; x++){
               int bombs=0;
-              if  (listBoard.get(x).get(y)!=11){
-                bombs= 
-                        listBoard.get(x-1).get(y-1)+
-                        listBoard.get(x).get(y-1)+
-                        listBoard.get(x+1).get(y-1)+
-                        listBoard.get(x+1).get(y)+
-                        listBoard.get(x+1).get(y+1)+
-                        listBoard.get(x).get(y+1)+
-                        listBoard.get(x-1).get(y+1)+
-                        listBoard.get(x-1).get(y);
+              if  (listBoard.get(y).get(x)!=11){
 
-                listBoard.get(x).set(y, bombs/11);
-              }
+                for(int i=y-1; i<y+2;i++){
+                       for(int j=x-1;j<x+2;j++){
+                           if(i>=0 && i<row && j>=0 && j<column){
+                               bombs += listBoard.get(i).get(j);
+                           }
+                       }
+                   }
+
+                   listBoard.get(y).set(x, bombs/11);
+
+                 }
             }           
-        }*/
+        }
     }
 }
