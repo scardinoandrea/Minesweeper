@@ -147,18 +147,22 @@ public class boardGame {
         for(int y=0; y<row; y++){        
             for(int x=0; x<column; x++){
               int bombs=0;
-              if  (listBoard.get(y).get(x)!=11){
-
+              //If in the actual box there is not bombs we can continue
+              if (listBoard.get(y).get(x)!=11){
+                  //Here we read all positions around the actual box
                 for(int i=y-1; i<y+2;i++){
                        for(int j=x-1;j<x+2;j++){
+                           /*
+                           If the pointer doesn't goes out of the matriz it's 
+                           possible to sum the value of that position
+                           */
                            if(i>=0 && i<row && j>=0 && j<column){
                                bombs += listBoard.get(i).get(j);
                            }
                        }
                    }
-
+                //
                    listBoard.get(y).set(x, bombs/11);
-
                  }
             }           
         }
